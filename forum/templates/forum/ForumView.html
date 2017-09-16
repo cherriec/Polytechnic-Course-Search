@@ -1,0 +1,43 @@
+{% extends 'forum/Forum_Base.html' %}
+
+{% block title %}School Forum{% endblock %}
+
+{% block content %}
+
+<div class ="page-header">
+    <div class="container">
+        <h2>{{ forum_name }} Forum</h2>
+    </div>
+</div>
+
+<div class = "container">
+    <a href="/forum/main/"><button type="button" class="back">
+        <span class="glyphicon glyphicon-arrow-left"></span>Back to All Forums</button></a>
+</div>
+<br /><br />
+
+<div class ="container">
+    <table class="table hover-table">
+        <thead>
+            <tr>
+                <th>Categories</th>
+                <th>Number of questions</th>
+            </tr>
+        </thead>
+
+        {% for forum in forum %}
+        <trbody>
+            <tr>
+                <td><a href="{% url 'threadview' pk=forum.pk %}">{{ forum.title }}</a></td>
+                <td>{{ forum.num_thread }}</td>
+            </tr>
+
+        </trbody>
+        {% empty %}
+            <h1 style="color: #83b4ac;">No Thread Found :(</h1>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% endblock %}

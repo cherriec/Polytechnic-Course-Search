@@ -1,0 +1,69 @@
+{% extends 'coursesearch/search_base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block results_content %}
+<div class="container" id="results_table">
+    <br />
+    SORT BY:
+	<button type="button" class="sort btn sort-btn" data-sort="name">Name</button>
+	<button type="button" class="sort btn sort-btn" data-sort="school">School</button>
+	<button type="button" class="sort btn sort-btn" data-sort="cutoff">Cut-Off Points</button>
+
+	<table class="table list">
+
+		<thead><tr>
+			<th>Name</th>
+			<th>School</th>
+			<th>Cut-Off Points</th>
+            {% if user.is_authenticated %}<th>Your L1R4</th>{% endif %}
+			<th>Description</th>
+			{% if user.is_authenticated %}<th>Add Target Course</th>{% endif %}
+		</tr></thead>
+
+		{% for course in courses %}<tbody><tr>
+
+			<td class="col-sm-3 name">{{course.name}}</td>
+			<td class="col-sm-2 school">{{course.get_school_display}}</td>
+			<td class="col-sm-1 cutoff">{{course.cutoff}}</td>
+
+            {% if user.is_authenticated %}<td>
+                {% if course.l1r4group == 'A' %}
+                    {{ request.user.profile.l1r4_A }}
+                {% elif course.l1r4group == 'B' %}
+                    {{ request.user.profile.l1r4_B }}
+                {% elif course.l1r4group == 'C' %}
+                    {{ request.user.profile.l1r4_C }}
+                {% elif course.l1r4group == 'D' %}
+                    {{ request.user.profile.l1r4_D }}
+                {% endif %}
+            </td>{% endif %}
+
+			<td class="col-sm-3">
+				<button type="button" class="btn description btn-md desc-button">View description</button>
+				<div class="desc">{{course.description}}</div>
+			</td>
+
+			{% if user.is_authenticated %}
+                <td><a href="{% url 'profile_add_target' code=course.code %}"><span class="glyphicon glyphicon-plus" style="font-size: 30px; text-align:center;"></span></a></td>
+            {% endif %}
+
+		</tr></tbody>{% endfor %}
+
+	</table>
+</div>
+
+<script>
+function main() {
+	var options = {
+		valueNames: ['name','school','cutoff']
+	};
+	var userList = new List('results_table',options);
+	$(".desc").hide();
+	$(".desc-button").on("click",function() {
+		$(this).next().slideToggle(300);
+	});
+}
+$(document).ready(main);
+</script>
+{% endblock %}

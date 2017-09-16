@@ -1,0 +1,71 @@
+11:English as a First Language
+58:Business Studies (OSIE)
+12:Higher Chinese
+59:Computer Studies (OSIE)
+13:Higher Malay
+60:Economics (OSIE)
+14:Higher Tamil
+61:Commerce / Commercial Studies
+21:English as a Second Language
+62:Principles of Accounts
+22:Chinese
+63:Combined Humanities
+23:Malay
+69:Higher Art
+24:Tamil
+70:Higher Music
+25:Bengali / Gujarati / Hindi / Punjabi / Urdu
+71:Literature in English
+29:Design Studies (Applied Subject)
+72:Literature in Chinese
+30:Biotechnology (Applied Subject)
+73:Literature in Malay
+31:Arabic as a Third Language
+74:Literature in Tamil
+32:Media Studies (Chinese) (Applied Subject)
+75:History
+33:Geometrical & Mechanical Drawing
+76:Geography
+34:Woodwork / Metalwork / Metalwork (Engineering) / Electricity & Electronics
+77:Art / Art & Design
+35:Geometrical & Building Drawing
+78:Music
+36:Design & Technology
+79:Drama (OSIE)
+37:Creative 3D Animation (Applied Subject)
+80:Fashion & Fabrics
+38:Introduction to Enterprise Development (Applied Subject)
+81:Food & Nutrition
+39:Fundamentals of Electronics (Applied Subject)
+82:Home Management
+40:Media Studies (English) (Applied Subject)
+83:Health Science
+41:Mathematics (Syllabus B, C or D)
+84:Bible Knowledge
+42:Additional Mathematics
+85:Islamic Religious Knowledge
+43:General Science
+86:Hindu Studies
+44:Physics / Engineering Science
+87:Sikh Studies
+45:Chemistry
+88:Confucian Ethics
+46:Biology
+89:Buddhist Studies
+47:Human & Social Biology
+90:Approved Asian / Foreign Languages
+48:Additional Science
+92:Chinese Language 'B' Syllabus
+49:Combined Science
+93:Malay Language 'B' Syllabus
+50:Science (Phy, Chem) / Physical Science
+94:Tamil Language 'B' Syllabus
+51:Science (Physics, Biology)
+95:Bahasa Indonesia as a Third Language
+52:Science (Chemistry, Biology)
+97:Chinese/Malay (Special Programme)
+53:Science (Physics, Chemistry, Biology)
+98:Mother Tongue Exemption
+54:Integrated Sci. / Additional Combined Sci.
+99:Others
+57:Physical Education (OSIE)

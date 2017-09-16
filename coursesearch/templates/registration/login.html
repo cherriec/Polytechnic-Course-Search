@@ -1,0 +1,42 @@
+{% extends 'coursesearch/base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="container">
+
+	<div class="row" style="text-align: center;">
+		<h3>Login</h3>
+	</div>
+
+	<form method="post" style="text-align: center;">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Login</button>
+	</form>
+
+	<div class="row" style="text-align: center;">
+		<a style="color: #ecab95;" href="/signup/">New User?</a>
+	</div>
+
+</div>
+{% endblock %}
+
+
+{% block public_content %}
+<div class="container">
+
+	<div class="row" style="text-align: center;">
+		<h3>Login</h3>
+	</div>
+
+	<form method="post" style="text-align: center;">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Login</button>
+	</form>
+
+	<div class="row" style="text-align: center;">
+		<a style="color: #a48b8b;" href="/signup/">New User?</a>
+	</div>
+
+</div>
+{% endblock %}

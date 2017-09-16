@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<head>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|News+Cycle" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/forum.css' %}">
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<nav class="navbar navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">Polytechnic Course Search</a>
+		</div>
+		<ul class="nav navbar-nav navbar-right">
+			{% if user.is_authenticated %}
+                <li><a href="/">Search Courses</a></li>
+                <li><a href="/profile/view/">Profile</a></li>
+                <li><a href="/logout/">Log out</a></li>
+			{% else %}
+				<li><a href="/login/">Log in</a></li>
+			{% endif %}
+    	</ul>
+	</div>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends 'forum/Forum_Base.html' %}
+
+{% block title %}Replying to Post{% endblock %}
+
+{% block content %}
+
+<div class="post-header">
+    <div class="container">
+        <h2>Reply to question: {{ subject }}</h2>
+    </div>
+</div>
+<br /><br />
+
+<div class = "container">
+    <a href="{% url 'postview' pk=post_pk %}"><button type="button" class="back">
+        <span class="glyphicon glyphicon-arrow-left"></span>Back to Post</button></a>
+</div>
+<br /><br />
+
+<div class ="container">
+    <form class="form-group" method="POST">
+         {% csrf_token %}
+          Post Title:
+          <input pattern=".{3,}" required title="Please enter at least 3 characters." id="title" type="text" name="title" class="form-control" placeholder="Title of your reply"/>
+          <br />
+          Post Body:
+          <textarea minlength="10" name="body" id="body" rows="5" class="form-control" placeholder="Your reply"></textarea>
+
+           <br />
+                <button type="submit" class="save btn btn-default"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+    </form>
+
+</div>
+
+
+{% endblock %}

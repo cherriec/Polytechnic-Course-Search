@@ -1,0 +1,56 @@
+{% load staticfiles %}
+
+<html>
+<head>
+
+<title>{% block title %}{% endblock %}</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script src="{% static 'django-dynamic-formset/src/jquery.formset.js' %}"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|News+Cycle" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/coursesearch.css' %}">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">Polytechnic Course Search</a>
+		</div>
+		<ul class="nav navbar-nav navbar-right">
+			{% if user.is_authenticated %}
+                <li><a href="/forum/main">Forum</a></li>
+                <li><a href="/profile/recommend/">View Recommendations</a></li>
+                <li><a href="/profile/view/">Profile</a></li>
+                <li><a href="/logout/">Log out</a></li>
+			{% else %}
+				<li><a href="/login/">Log in</a></li>
+			{% endif %}
+    	</ul>
+	</div>
+</nav>
+
+
+{% if user.is_authenticated %}
+    {% block content %}
+    {% endblock %}
+{% else %}
+    {% block public_content %}
+    {% endblock %}
+{% endif %}
+
+</body>
+
+<script>
+function main(){
+{#    $('.dropdown-toggle').dropdown();#}
+}
+$(document).ready(main);
+</script>
+
+</html>

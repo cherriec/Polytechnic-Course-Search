@@ -1,0 +1,53 @@
+{% extends 'forum/Forum_Base.html' %}
+
+{% block title %}Viewing all threads{% endblock %}
+
+{% block content %}
+
+<div class ="page-header">
+    <div class="container">
+    <h2>{{ thread_name }}</h2>
+    </div>
+</div>
+
+<div class = "container">
+    <a href="{% url 'forumview' pk=forum_pk %}"><button type="button" class="back">
+        <span class="glyphicon glyphicon-arrow-left"></span>Back to Topics</button></a>
+
+    <a href="{% url 'forumlist' %}"><button type="button" class="back" style="background-color: #0D3349;"><span class="glyphicon glyphicon-home"></span>
+            Back to Main</button></a>
+</div>
+<br /><br />
+
+<div class ="container">
+    <table class="table hover-table">
+        <thead><tr>
+            <th>Questions</th>
+            <th>Number of replies</th>
+            <th>Last Post</th>
+        </tr>
+        </thead>
+        {% for thread in thread %}
+        <trbody>
+            <tr>
+                <td><a href="{% url 'postview' pk=thread.pk %}">{{ thread.title }}</a></td>
+                <td>{{ thread.num_replies }}</td>
+                <td>{% if thread.num_posts == 0 %}
+                    No posts yet :(
+                    {% else %}
+                    "{{ thread.last_post.title }}" by {{thread.last_post.author }} on {{ thread.last_post.date_created.date }}</td>
+                    {% endif %}
+            </tr>
+        </trbody>
+        {% empty %}
+        <h1 style="color: #83b4ac;">Sorry! No questions found :(</h1>
+        {% endfor %}
+    </table>
+
+</div>
+<div class = "container">
+    <a href="{% url 'addthread' pk=pk %}"><button type="button" class="reply">
+        <span class="glyphicon glyphicon-plus"></span> Add Thread</button></a>
+</div>
+
+{% endblock %}

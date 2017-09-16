@@ -1,0 +1,60 @@
+{% extends 'coursesearch/base.html' %}
+{% block title %}Edit Target Courses{% endblock %}
+{% block content %}
+
+<div class="container">
+
+    <div class="row" style="text-align: center;">
+		<h3>Edit Target Courses</h3>
+	</div>
+
+	<form method="post">
+		{% csrf_token %}
+
+        {% if target_formset.non_form_errors %}
+            <div class="alert alert-warning">
+                <strong>{{ target_formset.non_form_errors }}</strong>
+            </div>
+        {% endif %}
+
+        {% for form in target_formset.forms %}
+            {% if form.non_field_errors %}<div class="alert alert-warning">
+                <strong>{{ form.non_field_errors }}</strong>
+            </div>{% endif %}
+            {% if form.errors %}<div class="alert alert-warning">
+                <strong>{{ form.errors }}</strong>
+            </div>{% endif %}
+        {% endfor %}
+
+        {{ target_formset.management_form }}
+    <br />
+        {% for target_form in target_formset %}
+            <br />
+            <div class="target_form">
+                {{ target_form.course }}
+                {{ target_form.rank }}
+
+
+            </div>
+            <br />
+        {% endfor %}
+        <br />
+        <br />
+		<input type="submit" value="Update Target Courses" class="save btn btn-default"/>
+	</form>
+
+
+
+</div>
+
+<script>
+function main() {
+    $('.target_form').formset({
+        addText: 'add target',
+        deleteText: 'remove'
+    });
+}
+$(document).ready(main);
+</script>
+
+{% endblock %}

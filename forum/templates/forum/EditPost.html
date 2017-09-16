@@ -1,0 +1,43 @@
+{% extends 'forum/Forum_Base.html' %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block content %}
+
+<div class="post-header">
+    <div class="container">
+        <h2>Editing Reply: "{{ subject }}"</h2>
+    </div>
+</div>
+<br /><br />
+
+<div class = "container">
+    <a href="{% url 'postview' pk=back %}"><button type="button" class="back"><span class="glyphicon glyphicon-arrow-left"></span>
+      Back to Post</button></a>
+</div>
+<br /><br />
+
+<div class ="container">
+<form method="POST" class="post-form">
+                   {% csrf_token %}
+
+                    Post Title:
+                    <br/>
+                    {{ form.title }}
+
+                    <br />
+                    <br />
+
+                    Post Body:
+                    <br />
+                    {{ form.body }}
+
+                    <br />
+                    <br />
+                    <button type="submit" class="save btn btn-default"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+</form>
+
+</div>
+</div>
+
+{% endblock %}

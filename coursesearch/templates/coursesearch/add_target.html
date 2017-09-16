@@ -1,0 +1,17 @@
+{% extends 'coursesearch/base.html' %}
+{% block title %}Add Target Course{% endblock %}
+{% block content %}
+
+<div class="container">
+
+	<h3>Adding "{{ target.code }} {{ target.name }}" as Target Course</h3>
+
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit"><span class="glyphicon glyphicon-plus"></span>Add</button>
+	</form>
+
+</div>
+
+{% endblock %}

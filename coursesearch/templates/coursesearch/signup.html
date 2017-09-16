@@ -1,0 +1,105 @@
+{% extends 'coursesearch/base.html' %}
+{% block title %}Sign up{% endblock %}
+
+{% block content %}
+<div class="container">
+
+	<div class="row" style="text-align: center;">
+		<h3>Sign up</h3>
+	</div>
+
+	<div class="container">
+	<form class="form-group" method="post">
+		{% csrf_token %}
+            <strong>User Name:</strong>
+        <input pattern="[a-z0-9._@+-].{,150}" required title="150 characters or fewer. Letters, digits and @/./+/-/_ only."
+               id="username" type="text" name="username"
+               placeholder="Input User Name" class="form-control"/>
+        <br />
+        <strong>First Name:</strong>
+        <input id="first_name" type="text" name="first_name"
+               placeholder="Input First Name (Optional)" class="form-control"/>
+        <br />
+        <strong>Email:</strong>
+        <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required title="Please enter a valid email address"
+               id="email" type="text" name="email"
+               placeholder="Input Email address" class="form-control"/>
+
+        <br />
+        <strong>Password:</strong>
+        <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+               id="password1" type="password" name="password1"
+               placeholder="Input Password" class="form-control"/>
+
+        <br />
+        <strong>Confirm Password:</strong>
+        <input type="password" placeholder="Confirm Password" id="password2" name="password2" class="form-control" required>
+
+
+        <br /><br />
+
+        {% if form.errors or form.non_field_errors %}
+            <div class="alert alert-warning"><strong>
+                {{ form.errors }}
+                {{ form.non_field_errors }}
+            </strong></div>
+        {% endif %}
+
+        <button type="submit" class="save btn btn-default">Sign Up</button>
+	</form>
+</div>
+</div>
+
+
+{% endblock %}
+
+
+{% block public_content %}
+<div class="container">
+
+	<div class="row" style="text-align: center;">
+		<h3>Sign up</h3>
+	</div>
+
+	<div class="container">
+	<form class="form-group" method="post">
+		{% csrf_token %}
+            <strong>User Name:</strong>
+        <input pattern="[a-z0-9._@+-].{,150}" required title="150 characters or fewer. Letters, digits and @/./+/-/_ only."
+               id="username" type="text" name="username"
+               placeholder="Input User Name" class="form-control"/>
+        <br />
+        <strong>First Name:</strong>
+        <input id="first_name" type="text" name="first_name"
+               placeholder="Input First Name (Optional)" class="form-control"/>
+        <br />
+        <strong>Email:</strong>
+        <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required title="Please enter a valid email address"
+               id="email" type="text" name="email"
+               placeholder="Input Email address" class="form-control"/>
+
+        <br />
+        <strong>Password:</strong>
+        <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+               id="password1" type="password" name="password1"
+               placeholder="Input Password" class="form-control"/>
+
+        <br />
+        <strong>Confirm Password:</strong>
+        <input type="password" placeholder="Confirm Password" name="password2" id="password2" class="form-control" title="Passwords do not match" required>
+
+        <br /><br />
+
+        {% if form.errors or form.non_field_errors %}
+            <div class="alert alert-warning"><strong>
+                {{ form.errors }}
+                {{ form.non_field_errors }}
+            </strong></div>
+        {% endif %}
+
+		<button type="submit" class="save btn btn-default">Sign Up</button>
+	</form>
+</div>
+</div>
+
+{% endblock %}

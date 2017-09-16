@@ -1,0 +1,70 @@
+{% extends 'coursesearch/base.html' %}
+{% block title %}Course Search{% endblock %}
+{% block content %}
+
+<div class="container" style="text-align: center; margin-top:30px; ">
+
+	<form type="get" action="{% url 'keyword_search' %}" style="margin: 0">
+		<div class="row">
+			<input id="search_box" type="text" name="search_box"  placeholder='Enter keywords, e.g. "engineering business"' class="input-lg">
+			<button id="search_submit" type="submit" class="btn btn-lg"><span class="glyphicon glyphicon-search"></span></button>
+		</div>
+	</form>
+
+	<div class="row btn-row-button text-center">
+        <p><h3>Browse by category &#9660;</h3></p>
+        <span class="row-btn-line">-------------------------------------------------------------------------------</span>
+       	</div>
+
+	<div class="row btn-row">
+		<a href="/category/BIZ/" class="btn cat-btn" role="button" style="background: #336699;"><span class="glyphicon glyphicon-briefcase"></span><br>Business</a>
+        <a href="/category/MED/" class="btn cat-btn" role="button" style="background: #ff9999; font-size: 10px;"><span class="glyphicon glyphicon-film"></span><br>Design&Media</a>
+		<a href="/category/ENG/" class="btn cat-btn" role="button" style="background: #ff9900;"><span class="glyphicon glyphicon-wrench"></span><br>Engineering</a>
+		<a href="/category/ENV/" class="btn cat-btn" role="button" style="background: #00cc44; font-size: 10px;"><span class="glyphicon glyphicon-globe"></span><br>Environment</a>
+		<a href="/category/HEA/" class="btn cat-btn" role="button" style="background: #ff4d4d;"><span class="glyphicon glyphicon-plus"></span><br>Health</a>
+        <a href="/category/HSS/" class="btn cat-btn" role="button" style="background: #cc66ff;"><span class="glyphicon glyphicon-user"></span><br>Humanities</a>
+        <a href="/category/IT/" class="btn cat-btn" role="button" style="background: #9999ff;"><span class="glyphicon glyphicon-phone"></span><br>IT</a>
+        <a href="/category/MAR/" class="btn cat-btn" role="button" style="background: #193366;"><span class="glyphicon glyphicon-dashboard"></span><br>Maritime</a>
+		<a href="/category/SCI/" class="btn cat-btn" role="button" style="background: #f3f542;"><span class="glyphicon glyphicon-leaf"></span><br>Science</a>
+	</div>
+
+    <div class="row btn-row-button text-center">
+                   <p><h3>or browse by school &#9660;</h3></p>
+        <span class="row-btn-line">-------------------------------------------------------------------------------</span>
+	</div>
+
+	<div class="row btn-row">
+		<a href="/school/SP/" class="btn sch-btn" role="button">SP</a>
+		<a href="/school/NYP/" class="btn sch-btn" role="button">NYP</a>
+		<a href="/school/NP/" class="btn sch-btn" role="button">NP</a>
+		<a href="/school/RP/" class="btn sch-btn" role="button">RP</a>
+		<a href="/school/TP/" class="btn sch-btn" role="button">TP</a>
+	</div>
+
+</div>
+
+
+{% if messages %}
+    <div class="container">
+  <ul class="messages">
+    {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+    </div>
+{% endif %}
+
+{% block results_content %}
+{% endblock %}
+
+<script>
+function main() {
+	$(".btn-row").hide();
+	$(".btn-row-button").on("click",function() {
+		$(this).next().slideToggle(300);
+		$(this).find(".row-btn-line").slideToggle(300);
+	});
+}
+$(document).ready(main);
+</script>
+{% endblock %}

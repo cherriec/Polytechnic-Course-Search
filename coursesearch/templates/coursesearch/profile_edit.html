@@ -1,0 +1,81 @@
+{% extends 'coursesearch/base.html' %}
+{% block title %}Edit Profile{% endblock %}
+{% block content %}
+
+<div class="container">
+
+	<div class="row" style="text-align: center;">
+		<h3>Edit Profile</h3>
+	</div>
+
+	<form method="post">
+		{% csrf_token %}
+
+        {% if interest_form.non_field_errors %}<div class="alert alert-warning">
+            <strong>{{ interest_form.non_field_errors }}</strong>
+        </div>{% endif %}
+
+        {% if interest_form.errors %}<div class="alert alert-warning">
+            <strong>{{ interest_form.errors }}</strong>
+        </div>{% endif %}
+
+        {% if grades_formset.non_form_errors %}
+            <div class="alert alert-warning">
+                <strong>{{ grades_formset.non_form_errors }}</strong>
+            </div>
+        {% endif %}
+
+        {% for form in grades_formset.forms %}
+            {% if form.non_field_errors %}<div class="alert alert-warning">
+                <strong>{{ form.non_field_errors }}</strong>
+            </div>{% endif %}
+
+            {% if form.errors %}<div class="alert alert-warning">
+                <strong>{{ form.errors }}</strong>
+            </div>{% endif %}
+        {% endfor %}
+
+		<div class="container">
+
+           <div class="col-md-5">
+               <div class="centerBlock">
+                   {{ interest_form.as_ul }}
+
+                </div>
+            </div>
+
+            <div class="col-md-7">
+            <div class="centerBlock">
+                <strong><h2>Subjects:</h2></strong>
+                {{ grades_formset.management_form }}
+                {% for grades_form in grades_formset %}
+                <br />
+                <div class="grade_form">
+                    {{ grades_form.subject }}
+                    {{ grades_form.grade }}
+                </div>
+
+            {% endfor %}
+            </div>
+        </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="text-center">
+            <input type="submit" class="save btn btn-default" value="Update Profile"/></div>
+            </div>
+	</form>
+
+</div>
+
+<script>
+function main() {
+    $('.grade_form').formset({
+        addText: 'add subject',
+        deleteText: 'remove'
+    });
+}
+$(document).ready(main);
+</script>
+
+{% endblock %}

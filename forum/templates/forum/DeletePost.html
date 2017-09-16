@@ -1,0 +1,33 @@
+{% extends 'forum/Forum_Base.html' %}
+
+{% block title %}Deleting Post{% endblock %}
+
+{% block content %}
+
+<div class="post-header">
+    <div class="container">
+        <h2>Delete Question: "{{ subject }}"</h2>
+    </div>
+</div>
+<br /><br />
+
+<div class = "container">
+    <a href="{% url 'postview' pk=back %}"><button type="button" class="back"><span class="glyphicon glyphicon-arrow-left"></span>
+      Back to Post</button></a>
+</div>
+<br /><br />
+
+<div class = "container">
+
+    <form method="post">
+        {% csrf_token %}
+         <h3> Are you sure you want to delete reply: "{{ subject }}" ? </h3>
+        <br /><br/>
+        <button type="submit" class="save btn btn-default">Confirm</button>
+    </form>
+
+</div>
+
+<br /><br />
+
+{% endblock %}

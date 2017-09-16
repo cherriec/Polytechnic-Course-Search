@@ -1,0 +1,186 @@
+body {
+   	font-family: 'Open Sans', sans-serif;
+	padding-top: 90px;
+}
+
+.navbar {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 10px;
+	background: #7F7F7F;
+}
+
+.navbar a{
+	color: #FCFCFC;
+}
+
+.navbar-brand {
+	font-size: 25px;
+}
+
+.navbar-right a:hover{
+	color: #7F7F7F;
+}
+
+.navbar-brand:hover {
+	color: #cacaca;
+}
+
+
+.page-header h2{
+    color: #ffffff;
+    font-size: 36pt;
+}
+
+.page-header{
+    background-image: url('talk3.jpg');
+    font-family: 'Patua One', 'Open Sans', sans-serif;
+    background-color: #373c64;
+    margin-top: 0;
+    padding: 5px 5px 5px;
+}
+
+.post-header{
+    font-family: 'Patua One', sans-serif;
+    background-color: #665555;
+    margin-top: 0;
+    padding: 5px 5px 5px;
+}
+
+.post-header h2{
+    color: #ffffff;
+    font-size: 36pt;
+}
+
+.backbar{
+    display:inline-block;
+    padding-bottom:20px;
+}
+
+.back{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: #806969;
+    border: none;
+    color: white;
+    padding: 7px 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 8px;
+    transition-duration: 0.2s;
+
+    position: relative;
+
+}
+
+.back:hover{
+    background-color: #a48b8b;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+}
+
+.home{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: #7e7e7e;
+    border: none;
+    color: white;
+    padding: 7px 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 8px;
+    transition-duration: 0.2s;
+
+    position: relative;
+
+}
+
+.home:hover{
+    background-color: #939393;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+}
+
+
+.delete{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: #ED5F5F;
+    border: none;
+    color: white;
+    padding: 7px 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 8px;
+    transition-duration: 0.2s;
+
+    position: relative;
+
+}
+
+
+.delete:hover{
+    background-color: rgba(255, 32, 40, 0.64);
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+}
+
+.edit{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: #73a29a;
+    border: none;
+    color: white;
+    padding: 7px 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 8px;
+    transition-duration: 0.2s;
+
+    position: relative;
+
+}
+
+
+.edit:hover{
+    background-color: #83b4ac;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+}
+
+.reply{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: #eeab65;
+    border: none;
+    color: white;
+    padding: 7px 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 8px;
+    transition-duration: 0.2s;
+
+    position: relative;
+
+}
+
+
+.reply:hover{
+    background-color: #ffba6a;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+}
+
+.view-post{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: rgba(0,0,0,0.24);
+    padding-bottom: 10px;
+    padding-left: 13px;
+}

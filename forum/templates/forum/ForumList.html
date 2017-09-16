@@ -1,0 +1,35 @@
+{% extends 'forum/Forum_Base.html' %}
+
+{% block title %}List of Forums{% endblock %}
+
+{% block content %}
+
+<div class ="page-header">
+    <div class="container">
+        <h2>School Forum</h2>
+    </div>
+</div>
+
+<div class ="container">
+    <table class="table hover-table">
+        <thead>
+            <tr>
+                <th>Forum Name</th>
+            </tr>
+        </thead>
+
+        {% for forumlist in forumlist %}
+        <trbody>
+            <tr>
+                <td><a href="{% url 'forumview' pk=forumlist.pk %}">{{ forumlist.title }}</a></td>
+            </tr>
+        {% empty %}
+            <h1 style="color: #83b4ac;">No Forums Found :(</h1>
+
+        </trbody>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% endblock %}

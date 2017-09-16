@@ -1,0 +1,44 @@
+{% extends 'forum/Forum_Base.html' %}
+
+{% block title %}Creating New Thread{% endblock %}
+
+{% block content %}
+<div class="post-header">
+    <div class="container">
+        <h2>Adding new Question to Topic: "{{ title }}"</h2>
+    </div>
+</div>
+<br /><br />
+
+<div class = "container">
+    <a href="{% url 'threadview' pk=thread_pk %}"><button type="button" class="back"><span class="glyphicon glyphicon-arrow-left"></span>
+      Back to Questions</button></a>
+</div>
+<br /><br />
+
+<div class ="container">
+
+    <form method="POST" class="post-form">
+       {% csrf_token %}
+
+        <form class="form-group">
+
+            <div class="form-group">
+                <label for="title">Thread Title:</label>
+                <input pattern=".{3,}" required title="Please enter at least 3 characters." id="title" type="text" name="title" class="form-control" placeholder="Title of new Thread"/>
+                </div>
+            <br />
+
+            <div class="form-group">
+            <label for="body">Post Body:</label>
+            <textarea minlength="10" name="body" id="body" rows="5" class="form-control" placeholder="The First Post"></textarea></div>
+
+            <br />
+            <div class="col-md-8">
+            <button type="submit" class="save btn btn-default">Save</button>
+        </form>
+    </form>
+
+</div>
+
+{% endblock %}

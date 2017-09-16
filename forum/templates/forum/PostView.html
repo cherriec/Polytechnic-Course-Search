@@ -1,0 +1,62 @@
+{% extends 'forum/Forum_Base.html' %}
+
+{% block title %}Viewing thread "{{ title }}"{% endblock %}
+
+{% block content %}
+
+<div class="post-header">
+    <div class="container">
+        <h2>Re: {{ title }}</h2>
+    </div>
+</div>
+<br /><br />
+
+<div class="container">
+    <div class = "backbar">
+        <a href="{% url 'threadview' pk=thread_pk %}"><button type="button" class="back"><span class="glyphicon glyphicon-arrow-left"></span>
+            Back to Questions</button></a>
+
+        <a href="{% url 'forumview' pk=main %}"><button type="button" class="back" style="background-color: #6b6b6b;"><span class="glyphicon glyphicon-triangle-left"></span>
+            Back to Forum</button></a>
+
+        <a href="{% url 'forumlist' %}"><button type="button" class="back" style="background-color: #0D3349;"><span class="glyphicon glyphicon-home"></span>
+            Back to Main</button></a>
+    </div>
+</div>
+
+
+<div class ="container">
+     {% for post in post %}
+            <div class = "view-post">
+                    <h3 style="color:#578179;">{{ post.title }}</h3>
+                    _____________________________________________________<br />
+                    by {{ post.author }} | <span class="date">{{ post.date_created }}</span> | Last Edited on: <span class="date">{{ post.date_published }}</span> <br /><br />
+                    <h4>{{ post.body }}</h4> <br />
+            {% if request.user == post.author %}
+                <a href="{% url 'editpost' pk=post.pk %}"><button type="button" class="edit">
+                    <span class="glyphicon glyphicon-edit"></span> Edit</button></a>
+
+                <a href="{% url 'delete' pk=post.pk %}"><button type="button" class="delete">
+                    <span class="glyphicon glyphicon-plus-sign"></span> Delete</button></a>
+            {% endif %}
+            </div>
+                <br /><br />
+                {% empty %}
+                    <h1 style="color: #83b4ac;">No Posts Found :(</h1>
+                {% endfor %}
+
+
+</div>
+
+<div class = "container">
+    <a href="{% url 'replypost' pk=pk %}"><button type="button" class="reply" style="margin-bottom:20px;">
+        <span class="glyphicon glyphicon-plus"></span> REPLY</button></a>
+
+    {% if thread_creator == request.user %}
+        <a href="{% url 'deletethread' pk=pk %}"><button type="button" class="delete">
+            <span class="glyphicon glyphicon-plus-sign"></span> DELETE QUESTION</button></a>
+    {% endif %}
+
+</div>
+
+{% endblock %}
